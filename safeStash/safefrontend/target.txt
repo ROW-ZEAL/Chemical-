@@ -1,0 +1,10 @@
+Member List: Display a list of all group members with their details (name, email, etc.) from the 'member' table.
+Deposit Form: Provide a form for members to make deposits, specifying the amount and date. This form will interact with the 'deposit' table.
+Deposit History: Show a history of all deposits made by the members, including the amount and date, retrieved from the 'deposit' table.
+Total Savings: Calculate and display the total savings of the group based on the deposits made, using data from the 'deposit' table.
+Individual Contribution: Show each member's contribution to the group savings, calculated from the 'deposit' table.
+Monthly Deposit Summary: Display a summary of the total deposit amount for each month, obtained from the 'deposit' table.
+Edit/Delete Deposits: Allow users to edit or delete their deposit entries from the 'deposit' table.
+Search/Filter Members: Implement a search or filter feature to easily find specific members in the 'member' table.
+Export Data: Provide an option to export member and deposit data to a CSV or Excel file for further analysis.
+Responsive Design: Ensure that your frontend is responsive and works well on different devices, such as smartphones and tablets.
