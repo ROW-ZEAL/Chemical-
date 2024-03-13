@@ -1,4 +1,4 @@
-## HEAD
+
 
 
 # Project Name
@@ -21,9 +21,8 @@ This project is a web application built with React for the frontend and Django w
    ```
 2. Install dependencies:
    ```sh
-   cd project-name
+ 
    npm install   # for frontend
-   pip install -r requirements.txt   # for backend
    ```
 
 ## Usage
