@@ -7,7 +7,8 @@ import Dashboard from "./pages/Dashboard";
 import Users from './pages/Users'
 import AddMembers from './pages/AddMembers'
 import Home from "./pages/Home";
-import DepositHistory from './pages/DropDownPages/DepositHistory';
+import DipositHistory from './pages/DropDownPages/DipositHistory';
+import DepositAmount from './pages/DropDownPages/DepositAmount';
 import IndividualContribution from '././pages/DropDownPages/IndividualContribution';
 import MonthlyDepositSummary from './pages/DropDownPages/MonthlyDepositSummary';
 import TotalSavings from './pages/DropDownPages/TotalSavings';
@@ -30,7 +31,8 @@ function App() {
           <Route path="/dashboard" element={access_token ? <Dashboard /> : <Navigate to="/login" />} />
           <Route path="/users" element={access_token ? <Users /> : <Navigate to="/login" />} />
           <Route path="/member" element={access_token ? <AddMembers /> : <Navigate to="/login" />} />
-          <Route path="/deposit-history" element={access_token ? <DepositHistory /> : <Navigate to="/login" />} />
+          <Route path="/amount" element={access_token ? <DepositAmount /> : <Navigate to="/login" />} />
+          <Route path="/deposit-history" element={access_token ? <DipositHistory /> : <Navigate to="/login" />} />
           <Route path="/individual-contribution" element={access_token ? <IndividualContribution /> : <Navigate to="/login" />} />
           <Route path="/monthly-deposit-summary" element={access_token ? <MonthlyDepositSummary /> : <Navigate to="/login" />} />
           <Route path="/total-savings" element={access_token ? <TotalSavings /> : <Navigate to="/login" />} />

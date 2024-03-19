@@ -20,7 +20,7 @@ def api_add_members(data):
             host=  'localhost',
             database="Aikyam",
             user="postgres",
-            password="postgres",
+            password="jayhind",
             port="5432"
         )
         db_connection.autocommit = True

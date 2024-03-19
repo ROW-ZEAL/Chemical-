@@ -171,3 +171,51 @@ body {
 .nav-link.active {
   background-color: white;
 }
+
+/* Overlay */
+.MuiBackdrop-root {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Dialog */
+.MuiDialog-paper {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Button */
+.MuiButton-containedPrimary {
+  background-color: #1976d2;
+}
+
+.MuiButton-containedPrimary:hover {
+  background-color: #115293;
+}
+
+/* Add this CSS to your existing stylesheet or create a new one */
+.table-container {
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.table th {
+  background-color: #f8f9fa;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+

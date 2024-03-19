@@ -47,7 +47,7 @@ class AddMember extends React.Component {
         <div className="col-12">
           <div className="card">
             <div className="card-body">
-              <h4 className="card-title">Add SSPro</h4>
+              <h4 className="card-title">Add Member</h4>
               {this.state.responseStatus == "success" ? (
                 <div>Success</div>
               ) : (

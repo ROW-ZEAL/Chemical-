@@ -47,7 +47,6 @@ const Navbar = () => {
                   aria-controls="simple-menu"
                   aria-haspopup="true"
                   onClick={handleClick}
-                  style={{ backgroundColor: isActive ? '#6d1b7b' : '' }}
                   sx={{ color: 'white', textTransform: 'none' }}
                 >
                 Financial Data
@@ -58,6 +57,7 @@ const Navbar = () => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
+                <MenuItem onClick={handleClose} component={NavLink} to='/amount'>Deposit</MenuItem>
                 <MenuItem onClick={handleClose} component={NavLink} to='/deposit-history'>Deposit History</MenuItem>
                 <MenuItem onClick={handleClose} component={NavLink} to='/total-savings'>Total Savings</MenuItem>
                 <MenuItem onClick={handleClose} component={NavLink} to='/individual-contribution'>Individual Contribution</MenuItem>
