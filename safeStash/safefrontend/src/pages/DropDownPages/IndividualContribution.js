@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import NavBar from '../../components/NavBar';
 
 const IndividualContribution = () => {
-    const [IndividualContribution, setIndividualContribution] = useState([]);
+    const [individualContribution, setIndividualContribution] = useState([]);
 
     useEffect(() => {
         fetch('http://127.0.0.1:8000/api/indivi')
@@ -24,8 +25,8 @@ const IndividualContribution = () => {
                     <div className="card-body">
                         <h1>Individual Contribution</h1>
                         <div className="table-responsive">
-                            <table className="table table-striped">
-                                <thead>
+                            <table className="table table-bordered table-hover">
+                                <thead className="bg-dark text-white">
                                     <tr>
                                         <th>SN</th>                                        
                                         <th>Member Id</th>
@@ -36,14 +37,16 @@ const IndividualContribution = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {IndividualContribution.map(Individual => (
-                                        <tr >
+                                    {individualContribution.map(individual => (
+                                        <tr key={individual.member_id}>
                                             <td>{sn++}</td>
-                                            <td>{Individual.member_id}</td>
-                                            <td>{Individual.first_name}</td>
-                                            <td>{Individual.total_amount}</td>
-                                            <td>{Individual.number}</td>
-                                            <td>{Individual.deposit_date}</td>
+                                            <td>{individual.member_id}</td>
+                                            <td>
+                                                <Link to={`/Individual_summary/${individual.first_name}`}>{individual.first_name}</Link>
+                                            </td>
+                                            <td>{individual.total_amount}</td>
+                                            <td>{individual.number}</td>
+                                            <td>{individual.deposit_date}</td>
                                         </tr>
                                     ))}
                                 </tbody>

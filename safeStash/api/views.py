@@ -6,6 +6,7 @@ from .api_deposit import *
 from .api_deposite_history import *
 from .api_monthly_summary import *
 from .api_individual_contro import *
+from .api_individual_summary import *
 from rest_framework.response import Response
 
 
@@ -28,6 +29,12 @@ def show_monthly_summary(request):
 def show_individual_deposit_summary(request):
     return Response(api_aikyam_get_individual_saving(request=request))
 
+@api_view(['GET'])
+def show_individual_deposit_total_summary(request, first_name):
+    return Response(api_aikyam_get_individual_deposit_history(request=request,first_name=first_name))
+
+
+
 
 @api_view(['POST'])
 def add_aikyam_members(request):
@@ -37,3 +44,8 @@ def add_aikyam_members(request):
 @api_view(['POST'])
 def deposit_history(request):
     return Response(api_deposit_history(request.data))
+
+
+@api_view(['POST'])
+def individual_history(request):
+    return Response(api_individual_history(request.data))

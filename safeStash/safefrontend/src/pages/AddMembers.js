@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-
 import NavBar from '../components/NavBar'
-
-
 
 class AddMember extends React.Component {
   constructor() {
@@ -43,7 +40,7 @@ class AddMember extends React.Component {
   render() {
     return (
       <div className="row">
-        <NavBar/>
+        <NavBar />
         <div className="col-12">
           <div className="card">
             <div className="card-body">
@@ -54,13 +51,13 @@ class AddMember extends React.Component {
                 <></>
               )}
               <form className="form-sample" onSubmit={this.handleSubmit}>
-                <div className="row">
+                <div className="row mb-3">
                   <div className="col-md-6">
-                    <div className="form-group row">
-                      <label className="col-sm-3 col-form-label">
-                        First name
-                      </label>
-                      <div className="col-sm-9">
+                    <div className="row">
+                      <div className="col-md-4">
+                        <label className="form-label">First name</label>
+                      </div>
+                      <div className="col-md-8">
                         <input
                           name="first_name"
                           type="text"
@@ -70,11 +67,11 @@ class AddMember extends React.Component {
                     </div>
                   </div>
                   <div className="col-md-6">
-                    <div className="form-group row">
-                      <label className="col-sm-3 col-form-label">
-                        Last name
-                      </label>
-                      <div className="col-sm-9">
+                    <div className="row">
+                      <div className="col-md-4">
+                        <label className="form-label">Last name</label>
+                      </div>
+                      <div className="col-md-8">
                         <input
                           name="last_name"
                           type="text"
@@ -84,13 +81,13 @@ class AddMember extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div className="row">
+                <div className="row mb-3">
                   <div className="col-md-6">
-                    <div className="form-group row">
-                      <label className="col-sm-3 col-form-label">
-                       Number
-                      </label>
-                      <div className="col-sm-9">
+                    <div className="row">
+                      <div className="col-md-4">
+                        <label className="form-label">Number</label>
+                      </div>
+                      <div className="col-md-8">
                         <input
                           name="number"
                           type="text"
@@ -100,11 +97,11 @@ class AddMember extends React.Component {
                     </div>
                   </div>
                   <div className="col-md-6">
-                    <div className="form-group row">
-                      <label className="col-sm-3 col-form-label">
-                        Email
-                      </label>
-                      <div className="col-sm-9">
+                    <div className="row">
+                      <div className="col-md-4">
+                        <label className="form-label">Email</label>
+                      </div>
+                      <div className="col-md-8">
                         <input
                           name="email"
                           type="text"
@@ -114,13 +111,13 @@ class AddMember extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div className="row">
+                <div className="row mb-3">
                   <div className="col-md-6">
-                    <div className="form-group row">
-                      <label className="col-sm-3 col-form-label">
-                        Address
-                      </label>
-                      <div className="col-sm-9">
+                    <div className="row">
+                      <div className="col-md-4">
+                        <label className="form-label">Address</label>
+                      </div>
+                      <div className="col-md-8">
                         <input
                           name="address"
                           type="text"
@@ -130,11 +127,11 @@ class AddMember extends React.Component {
                     </div>
                   </div>
                   <div className="col-md-6">
-                    <div className="form-group row">
-                      <label className="col-sm-3 col-form-label">
-                        Gender
-                      </label>
-                      <div className="col-sm-9">
+                    <div className="row">
+                      <div className="col-md-4">
+                        <label className="form-label">Gender</label>
+                      </div>
+                      <div className="col-md-8">
                         <input
                           name="gender"
                           type="text"

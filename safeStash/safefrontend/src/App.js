@@ -11,6 +11,7 @@ import DipositHistory from './pages/DropDownPages/DipositHistory';
 import DepositAmount from './pages/DropDownPages/DepositAmount';
 import IndividualContribution from '././pages/DropDownPages/IndividualContribution';
 import MonthlyDepositSummary from './pages/DropDownPages/MonthlyDepositSummary';
+import Individual_summary from './pages/DropDownPages/Individual_summary';
 import TotalSavings from './pages/DropDownPages/TotalSavings';
 import Layout from "./pages/Layout";
 import { useSelector } from "react-redux";
@@ -34,6 +35,7 @@ function App() {
           <Route path="/amount" element={access_token ? <DepositAmount /> : <Navigate to="/login" />} />
           <Route path="/deposit-history" element={access_token ? <DipositHistory /> : <Navigate to="/login" />} />
           <Route path="/individual-contribution" element={access_token ? <IndividualContribution /> : <Navigate to="/login" />} />
+          <Route path="/Individual_summary/:firstName" element={access_token ? <Individual_summary /> : <Navigate to="/login" />} />
           <Route path="/monthly-deposit-summary" element={access_token ? <MonthlyDepositSummary /> : <Navigate to="/login" />} />
           <Route path="/total-savings" element={access_token ? <TotalSavings /> : <Navigate to="/login" />} />
           <Route path="*" element={<h1>Error 404 Page not found !!</h1>} />

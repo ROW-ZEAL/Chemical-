@@ -195,8 +195,10 @@ body {
 }
 
 /* Add this CSS to your existing stylesheet or create a new one */
+/* Table styles */
 .table-container {
   margin-top: 20px;
+  overflow-x: auto; /* Enable horizontal scrolling */
 }
 
 .table {
@@ -208,14 +210,12 @@ body {
 .table td {
   padding: 8px;
   text-align: left;
-  border-bottom: 1px solid #dee2e6;
+  border: 1px solid black; /* Black border for all sides */
 }
 
 .table th {
   background-color: #f8f9fa;
+  color: #212529; /* Dark gray text color */
 }
 
-.table tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
 
