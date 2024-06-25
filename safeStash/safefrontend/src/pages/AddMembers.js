@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import NavBar from '../components/NavBar'
+import NavBar from "../components/NavBar";
 
 class AddMember extends React.Component {
   constructor() {
@@ -126,18 +126,22 @@ class AddMember extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-md-12">
                     <div className="row">
-                      <div className="col-md-4">
-                        <label className="form-label">Gender</label>
-                      </div>
-                      <div className="col-md-8">
-                        <input
-                          name="gender"
-                          type="text"
-                          className="form-control"
-                        />
-                      </div>
+                      <label htmlFor="gender" className="form-label">
+                        Gender
+                      </label>
+                      <select
+                        className="form-select"
+                        id="gender"
+                        name="gender"
+                        required
+                      >
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                      </select>
                     </div>
                   </div>
                 </div>

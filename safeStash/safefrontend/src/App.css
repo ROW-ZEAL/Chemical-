@@ -37,7 +37,6 @@
   }
 }
 
-
 .routes {
   margin-top: 15px;
   display: flex;
@@ -88,7 +87,6 @@
   border-bottom: #fff 0.5px solid;
 }
 
-
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -105,12 +103,11 @@
   color: #212529;
 }
 
-
 /* Add SSPro card */
 body {
   margin: 0;
   padding: 0;
-  background-color:whitesmoke;
+  background-color: whitesmoke;
   color: gray;
 }
 
@@ -119,7 +116,7 @@ body {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color:gainsboro; /* Light gray background */
+  background-color: gainsboro; /* Light gray background */
 }
 
 .card-body {
@@ -130,7 +127,6 @@ body {
   margin-bottom: 20px;
   color: #333; /* Dark gray text color */
 }
-
 
 /* Form fields */
 .form-group {
@@ -218,4 +214,29 @@ body {
   color: #212529; /* Dark gray text color */
 }
 
+.form-sample {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
 
+.form-row {
+  display: flex;
+  align-items: center;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.btn {
+  margin-top: 20px;
+}
+
+.col-md-6:nth-child(odd) {
+  grid-column: 1;
+}
+
+.col-md-6:nth-child(even) {
+  grid-column: 2;
+}

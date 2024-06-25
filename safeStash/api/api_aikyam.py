@@ -9,5 +9,5 @@ def api_aikyam_get_member_list(request):
 
 
 def get_aikyam_list(request):
-    members_query = """select * from Aikyam_Finance;"""
+    members_query = """select * from aikyam_finance ;"""
     return list(execute_query_and_map_results(members_query))
