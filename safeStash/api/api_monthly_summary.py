@@ -10,13 +10,15 @@ def api_aikyam_get_monthly_deposit_history(request):
 
 
 def get_monthly_deposit_history(request):
-    monthly_deposit_results_query = """ select
-                                            sum(amount) as total_amount ,
-                                            d.deposit_date
-                                        from
-                                            deposit d
-                                        group by
-                                            d.deposit_date ;
+    monthly_deposit_results_query = """ SELECT
+    SUM(amount) AS total_amount,
+    TO_CHAR(d.deposit_date, 'YYYY-MM') AS month
+FROM
+    deposit d
+GROUP BY
+    TO_CHAR(d.deposit_date, 'YYYY-MM')
+ORDER BY
+    TO_CHAR(d.deposit_date, 'YYYY-MM');
                                      """
     return list(execute_query_and_map_results(monthly_deposit_results_query))
 

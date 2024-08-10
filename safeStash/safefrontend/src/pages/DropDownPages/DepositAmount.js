@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import NavBar from "../../components/NavBar";
 import {
   TextField,
   Button,
@@ -11,6 +10,7 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
+import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 
 const Deposit = () => {
   const [memberId, setMemberId] = useState("");
@@ -54,6 +54,10 @@ const Deposit = () => {
           setResponseStatus("success");
           setSuccessMessage("Amount has been successfully deposited.");
           setOpen(true);
+          // Clear the input details
+          setSelectedMemberId("");
+          setAmount("");
+          setDepositDate("");
           setTimeout(() => {
             setSuccessMessage("");
             setOpen(false);
@@ -81,9 +85,8 @@ const Deposit = () => {
   };
 
   return (
-    <div className="row">
-      <NavBar />
-      <h4 className="card-title">Add Member</h4>
+    <div className="container mt-4">
+      <h4 className="card-title">Deposit Form</h4>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Success</DialogTitle>
         <DialogContent>{successMessage}</DialogContent>
@@ -93,63 +96,60 @@ const Deposit = () => {
           </Button>
         </DialogActions>
       </Dialog>
-      <div className="col-12">
-        <div className="card">
-          <div className="card-body">
-            <form className="form-sample" onSubmit={handleSubmit}>
-              <Grid container spacing={2}>
-                <Grid item xs={4}>
-                  <Select
-                    label="Member"
-                    variant="outlined"
-                    fullWidth
-                    value={selectedMemberId}
-                    onChange={handleMemberIdChange}
-                    displayEmpty
-                  >
-                    <MenuItem value="" disabled>
-                      Select Name
+      <div className="card">
+        <div className="card-body">
+          <form className="form-sample" onSubmit={handleSubmit}>
+            <div className="row">
+              <div className="col-md-4">
+                <Select
+                  label="Member"
+                  variant="outlined"
+                  fullWidth
+                  value={selectedMemberId}
+                  onChange={handleMemberIdChange}
+                  displayEmpty
+                >
+                  <MenuItem value="" disabled>
+                    Select Name
+                  </MenuItem>
+                  {members.map((member) => (
+                    <MenuItem key={member.id} value={member.id}>
+                      {member.first_name}
                     </MenuItem>
-                    {members.map((member) => (
-                      <MenuItem key={member.id} value={member.id}>
-                        {member.first_name}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </Grid>
-
-                <Grid item xs={4}>
-                  <TextField
-                    label="Amount"
-                    variant="outlined"
-                    fullWidth
-                    name="amount"
-                    value={amount}
-                    onChange={handleAmountChange}
-                  />
-                </Grid>
-                <Grid item xs={4}>
-                  <TextField
-                    label="Deposit Date"
-                    type="date"
-                    variant="outlined"
-                    fullWidth
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    name="depositDate"
-                    value={depositDate}
-                    onChange={handleDepositDateChange}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <Button type="submit" variant="contained" color="primary">
-                    Submit
-                  </Button>
-                </Grid>
-              </Grid>
-            </form>
-          </div>
+                  ))}
+                </Select>
+              </div>
+              <div className="col-md-4">
+                <TextField
+                  label="Amount"
+                  variant="outlined"
+                  fullWidth
+                  name="amount"
+                  value={amount}
+                  onChange={handleAmountChange}
+                />
+              </div>
+              <div className="col-md-4">
+                <TextField
+                  label="Deposit Date"
+                  type="date"
+                  variant="outlined"
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  name="depositDate"
+                  value={depositDate}
+                  onChange={handleDepositDateChange}
+                />
+              </div>
+              <div className="col-12 mt-3">
+                <Button type="submit" variant="contained" color="primary">
+                  Submit
+                </Button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

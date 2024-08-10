@@ -69,7 +69,6 @@ const IndividualSummary = () => {
 
   return (
     <div className="row">
-      <NavBar />
       <div className="col-lg-12 stretch-card">
         <div className="card">
           <div className="card-body">

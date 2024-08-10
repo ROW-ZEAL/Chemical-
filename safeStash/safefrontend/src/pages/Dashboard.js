@@ -6,6 +6,10 @@ import {
   Avatar,
   Card,
   CardContent,
+  Box,
+  List,
+  ListItem,
+  ListItemText,
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -19,7 +23,6 @@ import {
   unsetUserInfo,
   selectUserInfo,
 } from "../features/userSlice";
-import NavBar from "../components/NavBar";
 
 const Dashboard = () => {
   const [showChangePassword, setShowChangePassword] = useState(false);
@@ -35,7 +38,7 @@ const Dashboard = () => {
   const monthlySavingsRule = "Each member is required to save $500 per month.";
 
   const handleShowChangePassword = () => {
-    setShowChangePassword(true);
+    setShowChangePassword(!showChangePassword);
   };
 
   // Store User Data in Redux Store
@@ -53,54 +56,79 @@ const Dashboard = () => {
   return (
     <>
       <CssBaseline />
-      <NavBar />
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
-          <Card>
-            <CardContent>
-              <Typography variant="h4" gutterBottom>
-                Welcome, {userInfo.name}!
-              </Typography>
-              <Avatar
-                alt={userInfo.name}
-                src={kakashiImageUrl}
-                sx={{ width: 100, height: 100, mb: 2 }}
-              />
-              <Typography variant="body1">Email: {userInfo.email}</Typography>
-              <Typography variant="body1">{monthlySavingsRule}</Typography>
-              <Button
-                variant="contained"
-                color="warning"
-                size="large"
-                onClick={() => setShowChangePassword(!showChangePassword)}
-                sx={{ mt: 4 }}
-              >
-                {showChangePassword
-                  ? "Hide Change Password"
-                  : "Change Password"}
-              </Button>
-              {showChangePassword && <ChangePassword />}
-            </CardContent>
-          </Card>
+      <Grid
+        container
+        justifyContent="center"
+        alignItems="center"
+        sx={{ height: "100vh" }}
+      >
+        <Grid item xs={10} md={8}>
+          <Box
+            sx={{
+              bgcolor: "#c0c0c0",
+              p: 4,
+              borderRadius: 4,
+              textAlign: "center",
+              boxShadow: 3,
+              mt: "20px",
+            }}
+          >
+            <Typography variant="h4" gutterBottom>
+              Welcome, {userInfo.name}!
+            </Typography>
+            <Avatar
+              alt={userInfo.name}
+              src={kakashiImageUrl}
+              sx={{ width: 100, height: 100, mb: 2, mx: "auto" }}
+            />
+            <Typography variant="body1">Email: {userInfo.email}</Typography>
+            <Typography variant="body1">{monthlySavingsRule}</Typography>
+            <Button
+              variant="contained"
+              color="secondary"
+              size="large"
+              onClick={handleShowChangePassword}
+              sx={{ mt: 2 }}
+            >
+              {showChangePassword ? "Hide Change Password" : "Change Password"}
+            </Button>
+            {showChangePassword && <ChangePassword />}
+          </Box>
         </Grid>
-        <Grid item xs={12} md={6}>
-          <Card>
-            <CardContent>
-              <Typography variant="h6" gutterBottom>
-                Money Saving Tips
-              </Typography>
-              <Typography variant="body1">
-                Here are some tips to help you save money:
-                <ul>
-                  <li>Set a budget and stick to it</li>
-                  <li>Avoid unnecessary expenses</li>
-                  <li>Use cashback and rewards programs</li>
-                  <li>Invest in a high-interest savings account</li>
-                  <li>Track your spending and savings goals</li>
-                </ul>
-              </Typography>
-            </CardContent>
-          </Card>
+        <Grid item xs={10} md={8} sx={{ mt: 4 }}>
+          <Box
+            sx={{
+              bgcolor: "#c0c0c0",
+              p: 4,
+              borderRadius: 4,
+              textAlign: "center",
+              boxShadow: 3,
+            }}
+          >
+            <Typography variant="h6" gutterBottom>
+              Money Saving Tips
+            </Typography>
+            <Typography variant="body1">
+              Here are some tips to help you save money:
+            </Typography>
+            <List>
+              <ListItem>
+                <ListItemText primary="Set a budget and stick to it" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Avoid unnecessary expenses" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Use cashback and rewards programs" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Invest in a high-interest savings account" />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Track your spending and savings goals" />
+              </ListItem>
+            </List>
+          </Box>
         </Grid>
       </Grid>
     </>
