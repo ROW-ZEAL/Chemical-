@@ -13,8 +13,7 @@ def get_individual_deposit(request):
                                             first_name,
                                             number,
                                             email,
-                                            SUM(amount) AS total_amount,
-                                            current_date as deposit_date
+                                            SUM(amount) AS total_amount
                                         FROM
                                             (
                                             SELECT

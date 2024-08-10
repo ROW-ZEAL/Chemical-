@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import NavBar from "../components/NavBar";
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class AddMember extends React.Component {
   constructor() {
@@ -10,7 +10,6 @@ class AddMember extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    let hasError = true;
     const data = new FormData(event.target);
 
     fetch("http://localhost:8000/api/add/members", {
@@ -28,7 +27,7 @@ class AddMember extends React.Component {
       .then((response) => response.json())
       .then((responseData) => {
         console.log(responseData);
-        if (responseData["status"] == "success") {
+        if (responseData.status === "success") {
           event.target.reset();
           this.setState({ responseStatus: "success" });
         } else {
@@ -39,117 +38,91 @@ class AddMember extends React.Component {
 
   render() {
     return (
-      <div className="row">
-        <NavBar />
-        <div className="col-12">
-          <div className="card">
-            <div className="card-body">
-              <h4 className="card-title">Add Member</h4>
-              {this.state.responseStatus == "success" ? (
-                <div>Success</div>
-              ) : (
-                <></>
-              )}
-              <form className="form-sample" onSubmit={this.handleSubmit}>
-                <div className="row mb-3">
-                  <div className="col-md-6">
-                    <div className="row">
-                      <div className="col-md-4">
-                        <label className="form-label">First name</label>
+      <div>
+        <div className="container mt-6">
+          <div className="row justify-content-center">
+            <div className="col-lg-8 col-md-10">
+              <div className="card shadow-sm">
+                <div className="card-body">
+                  <h4 className="card-title mb-4 text-center">Add Member</h4>
+                  {this.state.responseStatus === "success" ? (
+                    <div className="alert alert-success" role="alert">
+                      Member added successfully!
+                    </div>
+                  ) : (
+                    this.state.responseStatus === "fail" && (
+                      <div className="alert alert-danger" role="alert">
+                        Failed to add member. Please try again.
                       </div>
-                      <div className="col-md-8">
+                    )
+                  )}
+                  <form onSubmit={this.handleSubmit}>
+                    <div className="row mb-3">
+                      <div className="col-md-6">
+                        <label className="form-label">First Name</label>
                         <input
                           name="first_name"
                           type="text"
                           className="form-control"
+                          required
                         />
                       </div>
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="row">
-                      <div className="col-md-4">
-                        <label className="form-label">Last name</label>
-                      </div>
-                      <div className="col-md-8">
+                      <div className="col-md-6">
+                        <label className="form-label">Last Name</label>
                         <input
                           name="last_name"
                           type="text"
                           className="form-control"
+                          required
                         />
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col-md-6">
-                    <div className="row">
-                      <div className="col-md-4">
+                    <div className="row mb-3">
+                      <div className="col-md-6">
                         <label className="form-label">Number</label>
-                      </div>
-                      <div className="col-md-8">
                         <input
                           name="number"
                           type="text"
                           className="form-control"
+                          required
                         />
                       </div>
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="row">
-                      <div className="col-md-4">
+                      <div className="col-md-6">
                         <label className="form-label">Email</label>
-                      </div>
-                      <div className="col-md-8">
                         <input
                           name="email"
-                          type="text"
+                          type="email"
                           className="form-control"
+                          required
                         />
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col-md-6">
-                    <div className="row">
-                      <div className="col-md-4">
+                    <div className="row mb-3">
+                      <div className="col-md-6">
                         <label className="form-label">Address</label>
-                      </div>
-                      <div className="col-md-8">
                         <input
                           name="address"
                           type="text"
                           className="form-control"
+                          required
                         />
                       </div>
+                      <div className="col-md-6">
+                        <label className="form-label">Gender</label>
+                        <select className="form-select" name="gender" required>
+                          <option value="">Select Gender</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
                     </div>
-                  </div>
-                  <div className="col-md-12">
-                    <div className="row">
-                      <label htmlFor="gender" className="form-label">
-                        Gender
-                      </label>
-                      <select
-                        className="form-select"
-                        id="gender"
-                        name="gender"
-                        required
-                      >
-                        <option value="">Select Gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-                  </div>
+                    <button type="submit" className="btn btn-primary w-100">
+                      Submit
+                    </button>
+                  </form>
                 </div>
-
-                <button type="submit" className="btn btn-gradient-primary me-2">
-                  Submit
-                </button>
-              </form>
+              </div>
             </div>
           </div>
         </div>
